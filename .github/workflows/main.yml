@@ -1,0 +1,38 @@
+name: PULLREQUEST-Deployment
+#on:
+ # pull_request:
+   # branches: 
+   #  - DEV
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: sfdx-actions/setup-sfdx@v1
+        with:
+          sfdx-auth-url: ${{ secrets.AUTH_SECRET }}
+      - name: 'AUTH_SECRET'
+        run: |
+              ls -la
+              # enter your script here - gnanasekar
+              sfdx force:auth:sfdxurl:store -f ./authurl -s -a DEVHUB       
+      - name: Generate diff to deploy
+        run: |
+              dir
+              chmod +x ./githubaction.sh
+              echo start
+              sed -i -e 's/\r$//'  githubaction.sh
+              ./githubaction.sh           
+        shell: bash
+        
+    
+        
+      
+
+       
+       
