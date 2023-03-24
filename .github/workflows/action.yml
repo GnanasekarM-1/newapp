@@ -1,9 +1,4 @@
 name: Delta-Incremental-Build-SFDX-Action
-#on:
- # pull_request:
-   # branches: 
-   #  - DEV
-
 on:
   workflow_dispatch:
 
@@ -15,7 +10,6 @@ jobs:
       - name: 'Auth-SFDX-authurl'
         run: |
               ls -la
-              # enter your script here - gnanasekar
               sfdx force:auth:sfdxurl:store -f ./authurl -s -a DEVHUB       
       - name: 'Run shell Generate diff'
         run: |
