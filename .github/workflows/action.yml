@@ -1,4 +1,4 @@
-name: PULLREQUEST-Deployment
+name: Delta-Incremental-Build-SFDX-Action
 #on:
  # pull_request:
    # branches: 
@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 'AUTH_SECRET'
+      - name: 'Auth-SFDX-authurl'
         run: |
               ls -la
               # enter your script here - gnanasekar
               sfdx force:auth:sfdxurl:store -f ./authurl -s -a DEVHUB       
-      - name: Generate diff to deploy
+      - name: 'Run shell Generate diff'
         run: |
               dir
               chmod +x ./githubaction.sh
