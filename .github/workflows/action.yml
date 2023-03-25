@@ -9,7 +9,7 @@ jobs:
     steps:   
       - name: Checkout code
         env:
-           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+           SSH_PRIVATE_KEY: ${{ secrets.SSH }}
         run: |
            mkdir -p ~/.ssh
             echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
@@ -20,5 +20,5 @@ jobs:
         run: |
               ls -la
               wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJf -
-              ./sfdx/install
+              ./sfdx-linux-amd64/install
               sfdx force:auth:sfdxurl:store -f ./authurl -s -a DEVHUB 
