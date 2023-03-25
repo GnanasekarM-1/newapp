@@ -9,7 +9,7 @@ jobs:
     steps:   
       - name: Checkout code
         env:
-           SSH_PRIVATE_KEY: ${{ secrets.SSH }}
+           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
             mkdir -p ~/.ssh
             echo "$SSH_PRIVATE_KEY"
