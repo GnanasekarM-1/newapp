@@ -9,26 +9,17 @@ jobs:
     steps:   
       - name: Checkout code
         env:
-           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+           SSH_PRIVATE_KEY: ${{ secrets.SSH }}
         run: |
-           mkdir -p ~/.ssh
+            mkdir -p ~/.ssh
+            echo "$SSH_PRIVATE_KEY"
             echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
             ssh-keyscan github.com >> ~/.ssh/known_hosts
-            git clone git@github.com:Gnanasekar-m/newapp.git
+            git clone git@github.com:GnanasekarM-1/newapp.git
       - name: 'Auth-SFDX-authurl'
         run: |
               ls -la
               wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJf -
-              ./sfdx/install
-              sfdx force:auth:sfdxurl:store -f ./authurl -s -a DEVHUB       
-      
-            
-
-        
-    
-        
-      
-
-       
-       
+              ./sfdx-linux-amd64/install
+              sfdx force:auth:sfdxurl:store -f ./authurl -s -a DEVHUB 
