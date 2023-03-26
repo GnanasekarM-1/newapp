@@ -5,8 +5,7 @@ on: [ push ]
 jobs:
   create_issue:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+ 
     steps:
       - name: Create issue using REST API
         run: |
@@ -15,8 +14,9 @@ jobs:
           #curl -L https://github.com/GnanasekarM-1/newapp.git
           curl --request POST \
           --url https://github.com/repos/${{ github.repository }} \
-          --header 'authorization: Bearer ${{ secrets.TOKEN }}'
+          --header 'authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}'
           ls -la
           git clone https://github.com/GnanasekarM-1/newapp.git
-          ls -la 
+          cd newapp
+          
           
