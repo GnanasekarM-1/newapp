@@ -18,4 +18,5 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.TOKEN }}'
           ls -la
           git clone https://github.com/GnanasekarM-1/newapp.git
+          ls -la 
           
