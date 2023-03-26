@@ -13,9 +13,6 @@ jobs:
           echo this is username ${{ github.username }}
           echo this is token ${{ github.TOKEN }}
           #curl -L https://github.com/GnanasekarM-1/newapp.git
-           curl --request POST \
-          --url https://api.github.com/repos/${{ github.repository }} \
-          --header 'authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}'
           curl --request POST \
           --url https://github.com/repos/${{ github.repository }} \
           --header 'authorization: Bearer ${{ secrets.TOKEN }}'
@@ -23,10 +20,10 @@ jobs:
           git clone https://github.com/GnanasekarM-1/newapp.git
           cd newapp
           ls -la
-          wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
-          mkdir ~/sfdx
-          tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
-          cd sfdx-linux-x64
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz 
+          mkdir sfdx-cli 
+          tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1 
+          ./sfdx-linux-amd64/install
           sfdx --version
           
           
