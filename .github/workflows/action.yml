@@ -1,31 +1,26 @@
-name: Delta-Incremental-Build-SFDX-Action
-on:
-  push:
-permissions: read-all
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    
-    steps:   
-      - name: Run script
-        env:
-         TOKEN: ${{ secrets.TOKEN }}
-        run: |
-             curl -H "Authorization: token ${{ secrets.TOKEN }}" -H "Accept: application/vnd.github.v3+json"  https://api.github.com/repos/GnanasekarM-1/newapp.git
+name: Create issue on commit
 
-      - name: Checkout code
+on: [ push ]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Create issue using REST API
         run: |
-            mkdir -p ~/.ssh
-            echo "$SSH_PRIVATE_KEY"
-            echo token
-            echo token text
-            #curl --request GET --url "https://api.github.com/repos/GnanasekarM-1/newapp" --header 'Authorization: Bearer "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"' --header "X-GitHub-Api-Version: 2022-11-28" |
-            ls -la
-            #curl -vX POST https://github.com/GnanasekarM-1/newapp.git/forks?access_token=${{ secrets.TOKEN }} -d @gh-fork.json --header "Content-Type: application/json"
-            ls -la
-            echo newcheckout
-            curl -H "Authorization: token ${{ secrets.TOKEN }}" -H "Accept: application/vnd.github.v3+json"  https://api.github.com/repos/GnanasekarM-1/newapp.git
-            git checkout main
-        
-           
+          echo this is repo name ${{ github.repository }}
+          echo this is username ${{ github.username }}
+          echo this is token ${{ github.TOKEN }}
+          #curl -L https://github.com/GnanasekarM-1/newapp.git
+          curl --request POST \
+          --url https://github.com/repos/${{ github.repository }} \
+          --header 'authorization: Bearer ${{ secrets.TOKEN }}'
+          ls -la
+          git clone https://github.com/GnanasekarM-1/newapp.git
+          cd newapp
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}
+          --header 'authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}'
+          
+          
