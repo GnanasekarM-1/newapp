@@ -16,10 +16,6 @@ jobs:
           curl --request POST \
           --url https://github.com/repos/${{ github.repository }} \
           --header 'authorization: Bearer ${{ secrets.TOKEN }}'
-          gh api \
-          -H "Accept: application/vnd.github+json" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          /repos/{{ github.repository }}/pulls
           ls -la
           git clone https://github.com/GnanasekarM-1/newapp.git
           cd newapp
@@ -29,6 +25,7 @@ jobs:
           tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1 
           ./sfdx-cli/install
           sfdx --version
+          git diff --color-words ${{ github.base_ref }}...${{ github.head_ref }}
           
           
           
