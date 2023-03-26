@@ -8,6 +8,9 @@ jobs:
     
     
     steps:   
+      - name: Run script
+        env:
+         TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout code
         run: |
             mkdir -p ~/.ssh
