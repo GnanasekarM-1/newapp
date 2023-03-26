@@ -20,7 +20,9 @@ jobs:
           git clone https://github.com/GnanasekarM-1/newapp.git
           cd newapp
           curl --request POST \
-          --url https://api.github.com/repos/${{ github.repository }}
+          --url https://api.github.com/repos/${{ github.repository }} \
           --header 'authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}'
+          
+          
           
           
