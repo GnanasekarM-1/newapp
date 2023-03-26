@@ -12,7 +12,7 @@ jobs:
              curl --request POST \
              --url https://github.com/repos/${{ github.repository }} \
              --header 'authorization: Bearer ${{ secrets.TOKEN }}'
-             curl -L \
+             curl -request POST \
              --url https://github.com/repos/${{ github.repository }}/pulls \
              -H "Accept: application/vnd.github+json" \
              -H "Authorization: Bearer ${{ secrets.TOKEN }}'"\
