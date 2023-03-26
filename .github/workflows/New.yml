@@ -12,4 +12,4 @@ jobs:
              curl --request POST \
              --url https://github.com/repos/${{ github.repository }} \
              --header 'authorization: Bearer ${{ secrets.TOKEN }}'
-             curl -H "Accept: application/vnd.github.v3+json" https://github.com/repos/${{ github.repository }}/pulls\?state\=open\&head\=:branch --header "Authorization: Bearer ${{ secrets.TOKEN }}"           
+             curl -H -v cookie "Accept: application/vnd.github.v3+json" https://github.com/repos/${{ github.repository }}/pulls\?state\=open\&head\=:branch --header "Authorization: Bearer ${{ secrets.TOKEN }}"           
