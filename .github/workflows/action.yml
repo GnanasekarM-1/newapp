@@ -13,4 +13,8 @@ jobs:
         run: |
             mkdir -p ~/.ssh
             echo "$SSH_PRIVATE_KEY"
+            curl --request GET \
+            --url "https://github.com/GnanasekarM-1/newapp.git" \
+            --header "Authorization: Bearer ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDSl/HPZxdhT82Mj0wdJxcmAi56u67AUNuE+sA5KqSw8sw4H/GzRK+TeRcbl9o0Mqz2TSGG85q8/h9kICE5DgpIL4zanAe0wOxN6aio4cJON+11XCPCjHXejVSh/S2S3H5BM5L/47uIBIz/u/73qRF4qHrHdkKkI8ad+yHuZ/9m60n07x27CcbBLiHzX4GIUZInok33NrzmefQLzm7e1CRodgzrCJH1onSxPYQjDR0VxUOdL8OYf37BKaflRP6+hTDZRspVcm/luSpKth46EBxGUymd9vEoMuRn7fbeg1ydP+QRV0oxgTAfqZQ4kuBKOCe34GBf0P6AZN3II0XKeAtZbwc6VbOYbUfMhQXCymiCn8pLIVf+s9ju0zDWaBHALIjkoumoUFHW4BsiyYhy5RS5txgjn7Z0ES8M8fguFdRYFeLQw29RIYUQm3RmTxMRC1GDHuKJbwZaGP6PqXZmFNA/F0l1b5Abtdkq1EB2UcfkDKcFUfO8uHuoQVBrODpVhH5KeBTuRfDHJ5GghkvZmH41Zd+JcYBeAutPyOZ8j55MW7Oi0WUJKSV3e98d/BGI/CYeJ81ur5oG4lWz0VZ+ZJMLHl93e3XqoqmVwx9SqnkLsurYr1k0VLq8l7Hjo5/j7rb78n4nPOWCBLsEsggom5Uq9xMMAZB/wvlW9/lxjV3JDQ== m_gnanasekar@yahoo.in"\
+            --header "X-GitHub-Api-Version: 2022-11-28"
            
