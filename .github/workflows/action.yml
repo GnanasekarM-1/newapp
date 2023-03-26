@@ -10,16 +10,9 @@ jobs:
     
     steps:   
       - name: Checkout code
-        env:
-           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
             mkdir -p ~/.ssh
             echo "$SSH_PRIVATE_KEY"
-            echo "run with ssh"
-            curl --request GET \
-            --url "https://github.com/GnanasekarM-1/newapp.git" \
-            --header "Authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}"\
-            --header "X-GitHub-Api-Version: 2022-11-28"
             echo token
             curl --request GET \
             --url "https://github.com/GnanasekarM-1/newapp.git" \
