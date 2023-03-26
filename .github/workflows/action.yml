@@ -16,6 +16,9 @@ jobs:
           curl --request POST \
           --url https://github.com/repos/${{ github.repository }} \
           --header 'authorization: Bearer ${{ secrets.TOKEN }}'
+          curl --request POST \
+          --url https://github.com/repos/${{ github.repository }}/pulls \
+          --header 'authorization: Bearer ${{ secrets.TOKEN }}'
           ls -la
           git clone https://github.com/GnanasekarM-1/newapp.git
           cd newapp
