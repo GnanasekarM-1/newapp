@@ -10,7 +10,8 @@ jobs:
       - name: Success REST API
         run: |
           echo this is repo name ${{ github.repository }}
-          echo this is username ${{ github.username }}
+          echo this is username ${{ github.base_ref }}
+          echo this is username ${{ github.head_ref }}
           echo this is token ${{ github.TOKEN }}
           #curl -L https://github.com/GnanasekarM-1/newapp.git
           curl --request POST \
