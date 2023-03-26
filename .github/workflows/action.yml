@@ -11,7 +11,7 @@ jobs:
       - name: Run script
         env:
          TOKEN: ${{ secrets.TOKEN }}
-         run: |
+        run: |
              curl -H "Authorization: token ${{ secrets.TOKEN }}" -H "Accept: application/vnd.github.v3+json"  https://api.github.com/repos/GnanasekarM-1/newapp.git
 
       - name: Checkout code
