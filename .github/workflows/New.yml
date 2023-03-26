@@ -1,0 +1,21 @@
+name: New
+
+on: [ push ]
+
+jobs:
+  New-CI:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Success REST API
+        run: |
+             curl --request POST \
+             --url https://github.com/repos/${{ github.repository }} \
+             --header 'authorization: Bearer ${{ secrets.TOKEN }}'
+             curl -L \
+             --url https://github.com/repos/${{ github.repository }} \
+             -H "Accept: application/vnd.github+json" \
+             -H "Authorization: Bearer ${{ secrets.TOKEN }}'"\
+             -H "X-GitHub-Api-Version: 2022-11-28" \
+             https://api.github.com/repos/OWNER/REPO/pulls
+           
