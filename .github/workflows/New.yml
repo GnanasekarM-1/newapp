@@ -12,9 +12,4 @@ jobs:
              curl --request POST \
              --url https://github.com/repos/${{ github.repository }} \
              --header 'authorization: Bearer ${{ secrets.TOKEN }}'
-             curl -request POST \
-             --url https://github.com/repos/${{ github.repository }}/pulls \
-             -H "Accept: application/vnd.github+json" \
-             -H "Authorization: Bearer ${{ secrets.TOKEN }}'"\
-             -H "X-GitHub-Api-Version: 2022-11-28"
-           
+             curl -H "Accept: application/vnd.github.v3+json" https://github.com/repos/${{ github.repository }}/pulls\?state\=open\&head\=:branch --header "Authorization: Bearer ${{ secrets.TOKEN }}"           
