@@ -26,9 +26,3 @@ jobs:
           tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1 
           ./sfdx-cli/install
           sfdx --version
-          git diff --color-words ${{ github.base_ref }}...${{ github.head_ref }}
-          
-          
-          
-          
-          
