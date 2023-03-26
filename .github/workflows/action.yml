@@ -16,5 +16,12 @@ jobs:
             echo token
             echo token text
             curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer "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"' --header "X-GitHub-Api-Version: 2022-11-28"
-            
+            ls -la 
+            echo token variable
+            curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer ${{ secrets.TOKEN }}"' --header "X-GitHub-Api-Version: 2022-11-28"
+            ls -la
+            echo ssh
+            curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer ${{ secrets.SSH_PRIVAT_KEY }}"' --header "X-GitHub-Api-Version: 2022-11-28"
+            ls -la
+        
            
