@@ -11,12 +11,16 @@ jobs:
         run: |
           echo this is repo name ${{ github.repository }}
           echo this is username ${{ github.username }}
+          echo this is token ${{ github.TOKEN }}
           #curl -L https://github.com/GnanasekarM-1/newapp.git
           curl --request POST \
           --url https://github.com/repos/${{ github.repository }} \
-          --header 'authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}'
+          --header 'authorization: Bearer ${{ secrets.TOKEN }}'
           ls -la
           git clone https://github.com/GnanasekarM-1/newapp.git
           cd newapp
+          curl --request POST \
+          --url ssh://git@github.com:/repos/${{ github.repository }} \
+          --header 'authorization: Bearer ${{ secrets.SSH_PRIVATE_KEY }}'
           
           
