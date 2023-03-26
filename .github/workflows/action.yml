@@ -15,17 +15,9 @@ jobs:
             echo "$SSH_PRIVATE_KEY"
             echo token
             echo token text
-            curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer "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"' --header "X-GitHub-Api-Version: 2022-11-28"
-            ls -la 
-            curl -d '' https://github.com/GnanasekarM-1/newapp.git
-            git checkout main
-            echo token variable
-            curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer ${{ secrets.TOKEN }}"' --header "X-GitHub-Api-Version: 2022-11-28"
+            curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer "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"' --header "X-GitHub-Api-Version: 2022-11-28" |
             ls -la
-            git checkout main
-            echo ssh
-            curl --request GET --url "https://github.com/GnanasekarM-1/newapp.git" --header 'Authorization: Bearer ${{ secrets.SSH_PRIVAT_KEY }}"' --header "X-GitHub-Api-Version: 2022-11-28"
+            curl -vX POST https://github.com/GnanasekarM-1/newapp.git/forks?access_token=${{ secrets.TOKEN }} -d @gh-fork.json --header "Content-Type: application/json"
             ls -la
-            git checkout main
         
            
