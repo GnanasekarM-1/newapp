@@ -11,4 +11,4 @@ jobs:
              chmod 777 run.py
              python run.py
              echo done
-        shell:sh
+        shell: sh
