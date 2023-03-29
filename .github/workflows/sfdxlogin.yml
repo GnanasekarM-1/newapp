@@ -8,6 +8,12 @@ jobs:
     steps:
       - name: SFDX login
         run: |
+             curl --request POST \
+             --url https://github.com/repos/${{ github.repository }} \
+             --header 'authorization: Bearer ${{ secrets.TOKEN }}'
+             ls -la
+             git clone https://github.com/GnanasekarM-1/newapp.git
+             cd newapp
              chmod 777 run.py
              python run.py
              echo done
